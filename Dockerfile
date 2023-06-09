@@ -1,8 +1,9 @@
 # 1. Define the official Python base image
-FROM python:3.10-slim-bullseye
+FROM python:3.10-alpine
 
 # 2. set environment vaiables
 ENV PYTHONDONTWRITEBYTECODE 1
+# send output from python straight to the terminal without buffering it first.
 ENV PYTHONUNBUFFERED 1
 
 # 3. Set the working directory
@@ -19,4 +20,4 @@ COPY . /app/
 EXPOSE 8000
 
 # 7. Run the Django development server
-CMD ['python', 'manage.py', 'runserver'. '0.0.0.0:8000']
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
